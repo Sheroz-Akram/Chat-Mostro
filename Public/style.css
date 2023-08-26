@@ -8,13 +8,13 @@ html {
     height: 100px;
     width: 100%;
     background-color: rgb(1, 51, 88);
-    padding: 10px;
     left: 0px;
     top: 0px;
 }
 
 .navBar .leftSide {
     float: left;
+    margin-left: 20px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -68,11 +68,86 @@ html {
 
 }
 
+.Header {
+    position: relative;
+    height: 400px;
+    background-image: url('/Images/Header.png');
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
 
-@media screen and (max-width: 530px) {
+.Header .displayText {
+    margin-left: 40px;
+    width: 50%;
+    text-align: justify;
+    background-color: rgba(166, 153, 97, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.Header .displayText h1 {
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 60px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.Header .displayText p {
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.Header .displayImg {
+    position: absolute;
+    left: 80%;
+    transform: translate(-50%, 0%);
+}
+
+.Header .displayImg img {
+    height: 300px;
+}
+
+@media screen and (max-width: 550px) {
     .navBar .chatButton {
         position: absolute;
         bottom: 10px;
         right: 10px;
+    }
+
+    .Header .displayText {
+        width: 80%;
+        margin: auto;
+        text-align: center;
+    }
+
+    .Header .displayText h1 {
+        font-size: 30px;
+    }
+
+    .Header .displayText p {
+        font-size: 17px;
+    }
+
+    .Header .displayImg img {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .Header .displayText h1 {
+        font-size: 40px;
+    }
+
+    .Header .displayImg img {
+        height: 200px;
     }
 }
