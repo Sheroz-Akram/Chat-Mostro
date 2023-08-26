@@ -1,0 +1,19 @@
+{
+  "name": "chat-monstro-server",
+  "version": "1.0.0",
+  "description": "Real Time chat app server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Chat",
+    "App",
+    "Server"
+  ],
+  "author": "Sheroz Akram",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
