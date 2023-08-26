@@ -1,7 +1,78 @@
-body{
-    background-color: blue;
+body,
+html {
+    margin: 0;
+    padding: 0;
 }
 
-h1{
-    color: red;
+.navBar {
+    height: 100px;
+    width: 100%;
+    background-color: rgb(1, 51, 88);
+    padding: 10px;
+    left: 0px;
+    top: 0px;
+}
+
+.navBar .leftSide {
+    float: left;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.navBar .rightSide {
+    float: right;
+    margin-right: 30px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.navBar .navLogo {
+    float: left;
+    margin-right: 20px;
+    margin-right: 20px;
+}
+
+.navBar .title h2,
+.navBar .title h5 {
+    color: white;
+    margin: 0px;
+    padding: 0px;
+}
+
+.navBar .title h5 {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.navBar .chatButton {
+    width: 150px;
+    height: 50px;
+    background-color: rgb(0, 102, 179);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    float: right;
+}
+
+.navBar .chatButton:hover {
+    background-color: rgb(0, 12, 179);
+
+}
+
+.navBar .chatButton a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+
+}
+
+
+@media screen and (max-width: 530px) {
+    .navBar .chatButton {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+    }
 }
