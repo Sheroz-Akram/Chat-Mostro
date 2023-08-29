@@ -166,9 +166,28 @@ html {
     text-align: justify;
 }
 
+.Footer{
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 19, 34);
+    color: white;
+}
+
+.Footer p{
+    margin: 2px;
+}
+
+.Footer a{
+    color: rgb(0, 102, 179);
+    text-decoration: none;
+}
+
 @media screen and (max-width: 550px) {
     .navBar .chatButton {
-        position: absolute;
+        position: fixed;
         bottom: 10px;
         right: 10px;
     }
