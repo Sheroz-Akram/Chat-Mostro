@@ -14,6 +14,9 @@ Here are some of the most important features of our chat application.
 6. Seamless Synchronization
 7. Group Chats and Collaboration
 
+## Screen Shots
+<img src="/Project Images/Home.png" alt="Chat Monstro Home Page">
+
 
 ## Starting the Chat App Server
 
