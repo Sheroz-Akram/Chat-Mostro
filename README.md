@@ -1,4 +1,4 @@
-<img src="/Public/Images/Logo.png" alt="Chat Monstro Logo" width="200"/>
+<img src="/Public/Images/Logo.png" alt="Chat Mostro Logo" width="200"/>
 
 
 # Chat-Mostro
@@ -15,7 +15,7 @@ Here are some of the most important features of our chat application.
 7. Group Chats and Collaboration
 
 ## Screen Shots
-<img src="/Project Images/Home.png" alt="Chat Monstro Home Page">
+<img src="/Project Images/Home.png" alt="Chat Mostro Home Page">
 
 
 ## Starting the Chat App Server
