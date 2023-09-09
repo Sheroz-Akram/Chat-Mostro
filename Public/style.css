@@ -176,6 +176,52 @@ html {
     color: white;
 }
 
+.accountBox{
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.accountBoxContainer{
+    height: 500px;
+    width: 400px;
+    background-color: rgb(1, 51, 88);
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px 4px;
+}
+
+.accountBoxContainer .buttons button{
+    float: left;
+    height: 50px;
+    background-color: rgb(0, 102, 179);
+    border: none;
+    color: white;
+    border-bottom: 5px solid white;
+    font-size: 20px;
+    width: 50%;
+}
+
+#loginSelectButton{
+    border-radius: 10px 0px 0px 0px;
+}
+
+#signUpSelectButton{
+    border-radius: 0px 10px 0px 0px;
+}
+
+.accountBoxContainer .buttons button:hover{
+    background-color: rgb(0, 112, 197);
+}
+
+.accountBoxContainer .buttons .active{
+    background-color: rgb(1, 51, 88);
+}
+
+.accountBoxContainer .buttons .active:hover{
+    background-color: rgb(1, 51, 88);
+}
+
 .Footer p{
     margin: 2px;
 }

@@ -21,9 +21,19 @@ app.get("/", (req, res) => {
     res.redirect("/Home")
 })
 
+// Chat Pages
+app.get("/Chat", (req, res) => {
+    res.redirect("/Login");
+})
+
+// Registration Page
+app.get("/Login", (req, res) => {
+    res.sendFile(clientDirectory + "Login.html");
+})
+
 // Home Page
 app.get("/Home", (req, res) => {
-    res.sendFile(clientDirectory+ "Home.html");
+    res.sendFile(clientDirectory + "Home.html");
 })
 
 // Listen Our Server on Port 80
