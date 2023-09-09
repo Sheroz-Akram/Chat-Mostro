@@ -26,7 +26,12 @@ app.get("/Chat", (req, res) => {
     res.redirect("/Login");
 })
 
-// Registration Page
+// Terms and Conditions Page
+app.get("/Terms", (req, res) => {
+    res.sendFile(clientDirectory + "Terms.html");
+})
+
+// Registration and Login Page
 app.get("/Login", (req, res) => {
     res.sendFile(clientDirectory + "Login.html");
 })

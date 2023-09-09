@@ -183,7 +183,50 @@ html {
     align-items: center;
 }
 
+.accountBox .accountBoxData{
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.accountBox .accountBoxData input{
+    width: 360px;
+    height: 20px;
+    font-size: 20px;
+}
+
+.accountBox .accountBoxData h4{
+    color: white;
+    margin: 0px;
+    margin-top: 20px;
+    font-size: 25px;
+}
+
+.accountBox .accountBoxData .dispayButton{
+    width: 100%;
+}
+
+.accountBox .accountBoxData button{
+    width: 100px;
+    height: 50px;
+    color: white;
+    font-size: 15px;
+    border-radius: 10px;
+    background-color: rgb(0, 102, 179);
+    border: none;
+    margin-top: 20px;
+}
+
+.accountBox .accountBoxData button:hover{
+    background-color: rgb(1, 51, 88);
+    border: 5px solid white;
+}
+
 .accountBoxContainer{
+    position: relative;
     height: 500px;
     width: 400px;
     background-color: rgb(1, 51, 88);

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    
+
     <link rel="shortcut icon" href="/Images/Logo.png" type="image/x-icon">
     <title>Chat Mostro - Home Page</title>
 </head>
@@ -36,6 +36,39 @@
                 <button id="loginSelectButton" onclick="toggleAccountBox()" class="active">Sign In</button>
                 <button id="signUpSelectButton" onclick="toggleAccountBox()">Sign Up</button>
             </div>
+            <div class="accountBoxData">
+
+                <!-- Sign In Form -->
+                <div class="signInBox" id="signInBox">
+                    <h4>Enter User Name: </h4>
+                    <input type="text" name="" placeholder="Enter Your Username" id="">
+                    <h4>Enter Password: </h4>
+                    <input type="password" name="" placeholder="Enter Account Password" id="">
+                    <br>
+                    <div class="displayButton">
+                        <button>Sign In</button>
+                    </div>
+                </div>
+
+                <!-- Sign Up Form -->
+                <div class="signUpBox" id="signUpBox" style="display: none;">
+                    <h4>Enter User Name: </h4>
+                    <input type="text" name="" placeholder="Enter Your Username" id="">
+                    <h4>Enter Password: </h4>
+                    <input type="password" name="" placeholder="Enter Account Password" id="">
+                    <h4>Confirm Password: </h4>
+                    <input type="password" name="" placeholder="Confirm Password" id="">
+                    <br>
+                    <div class="termsAgree" style="color: white;">
+                        <p style="display: flex;align-items: center;"><input type="checkbox" style="width: auto;" name="" id=""> I Agree to Terms and Conditions. <a style="color: white;" href="/Terms">Click To View</a></p>
+                    </div>
+                    <div class="displayButton">
+                        <button>Sign Up</button>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </div>
 
