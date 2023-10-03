@@ -26,7 +26,6 @@ function signInUser(){
 
     // Create A Form Data for the User
     let loginFormData = new FormData();
-    loginFormData.append("requestType", "signin");
     loginFormData.append("username", userName);
     loginFormData.append("password", userPass);
 
@@ -36,11 +35,52 @@ function signInUser(){
     }
     // Send the Login Request to the Server
     else{
-        fetch("/AccountAPI", {
+        fetch("/LoginAPI", {
             method: "POST",
             body: loginFormData
         }).then(res => res.json()).then(data => {
             console.log(data);
         })
     }
+}
+
+// Sign Up a new User
+function signUpUser(){
+
+    // Get Data from the form
+    let username = document.getElementById("userNameSignUp").value;
+    let password = document.getElementById("userPassSignUp").value;
+    let confirmPassword = document.getElementById("userPassConfirmSignUp").value;;
+    let profilePic = document.getElementById("userProfilePictureSignUp");
+    let agreeConditions = document.getElementById("agreeCheckBox").checked;
+
+    // Check Given input data if Correct or not
+    if(username.length == 0 || password.length == 0 || confirmPassword.length == 0){
+        window.alert("Please complete the form!");
+    }
+    else if(profilePic.files.length == 0){
+        window.alert("Please select your Profile Picture");
+    }
+    else if(agreeConditions == false){
+        window.alert("Please agree to our terms and conditions");
+    }
+
+    // All Checks are cleared. Now Submit User Data
+    else{
+
+        // Create Form Data
+        let signupForm = new FormData();
+        signupForm.append("username", username);
+        signupForm.append("password", password);
+        signupForm.append("profilePicture", profilePic.files[0]);
+
+        // Send data to the Server
+        fetch("/RegistorAPI", {
+            method: "POST",
+            body: signupForm
+        }).then(res => res.json()).then(data => {
+            console.log(data);
+        })
+    }
+    
 }

@@ -9,7 +9,9 @@ let clientDirectory = path.join(__dirname, "../Client/")
 let publicDirectory = path.join(__dirname, "../Public/")
 
 // Initialize Our Multer Form Praser
-let multerUpload = multer();
+let multerUploadProfilePics = multer({
+    dest: "../ProfilePics/"
+});
 
 // Create a Server and Configure
 let app = express();
@@ -19,7 +21,6 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.use(multerUpload.none())
 
 // Make routes for Website
 
@@ -33,30 +34,16 @@ app.get("/Chat", (req, res) => {
     res.redirect("/Login");
 })
 
-// Create Account and Sign In New User
-app.post("/AccountAPI", (req, res) => {
+// Sign In New User
+app.post("/LoginAPI", multerUploadProfilePics.none(),   (req, res) => {
     console.log(req.body)
+})
 
-    // Get the Type of Request
-    let requestType = req.body["requestType"];
-
-    // Login Implementation
-    if (requestType == "signin") {
-
-    }
-
-    // Sign Up a new User
-    else if (requestType == "signup") {
-
-    }
-
-    // In Case of Invalid Request
-    else {
-        res.send({
-            "ResponseCode": "404",
-            "Message": "Invalid API Endpoint"
-        })
-    }
+// Create a new User
+app.post("/RegistorAPI", multerUploadProfilePics.single("profilePicture"),  (req, res) => {
+    console.log(req.body);
+    console.log(req.file)
+    res.send("Hello");
 })
 
 // Terms and Conditions Page
