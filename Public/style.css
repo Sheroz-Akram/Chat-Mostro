@@ -194,7 +194,7 @@ html {
 
 .accountBox .accountBoxData input{
     width: 360px;
-    height: 20px;
+    height: 25px;
     font-size: 20px;
 }
 
@@ -227,12 +227,13 @@ html {
 
 .accountBoxContainer{
     position: relative;
-    height: 500px;
+    height: 600px;
     width: 400px;
     background-color: rgb(1, 51, 88);
     border-radius: 10px;
     box-shadow: 4px 4px 10px 4px;
 }
+
 
 .accountBoxContainer .buttons button{
     float: left;

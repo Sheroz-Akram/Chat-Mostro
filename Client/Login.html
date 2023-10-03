@@ -33,39 +33,47 @@
     <div class="accountBox">
         <div class="accountBoxContainer">
             <div class="buttons">
-                <button id="loginSelectButton" onclick="toggleAccountBox()" class="active">Sign In</button>
-                <button id="signUpSelectButton" onclick="toggleAccountBox()">Sign Up</button>
+                <button id="loginSelectButton" onclick="toggleAccountBox(0)" class="active">Sign In</button>
+                <button id="signUpSelectButton" onclick="toggleAccountBox(1)">Sign Up</button>
             </div>
             <div class="accountBoxData">
 
                 <!-- Sign In Form -->
                 <div class="signInBox" id="signInBox">
+                    <div style="width: 100%;display: flex;flex-direction: column;align-items: center;">
+                        <img src="/Images/Logo.png" alt="" width="100px" srcset="">
+                        <h4>Chat Mostro</h4>
+                    </div>
                     <h4>Enter User Name: </h4>
-                    <input type="text" name="" placeholder="Enter Your Username" id="">
+                    <input type="text" name="" placeholder="Enter Your Username" id="userNameLogin" required>
                     <h4>Enter Password: </h4>
-                    <input type="password" name="" placeholder="Enter Account Password" id="">
+                    <input type="password" name="" placeholder="Enter Account Password" id="userPassLogin" required>
                     <br>
                     <div class="displayButton">
-                        <button>Sign In</button>
+                        <button onclick="signInUser()">Sign In</button>
                     </div>
                 </div>
 
                 <!-- Sign Up Form -->
-                <div class="signUpBox" id="signUpBox" style="display: none;">
-                    <h4>Enter User Name: </h4>
-                    <input type="text" name="" placeholder="Enter Your Username" id="">
-                    <h4>Enter Password: </h4>
-                    <input type="password" name="" placeholder="Enter Account Password" id="">
-                    <h4>Confirm Password: </h4>
-                    <input type="password" name="" placeholder="Confirm Password" id="">
-                    <br>
-                    <div class="termsAgree" style="color: white;">
-                        <p style="display: flex;align-items: center;"><input type="checkbox" style="width: auto;" name="" id=""> I Agree to Terms and Conditions. <a style="color: white;" href="/Terms">Click To View</a></p>
+                <form action="/AccountAPI" method="post" enctype="multipart/form-data" aria-disabled="true">
+                    <div class="signUpBox" id="signUpBox" style="display: none;" >
+                        <h4>Enter User Name: </h4>
+                        <input type="text" name="" placeholder="Enter Your Username" id="userNameSignUp" required>
+                        <h4>Enter Password: </h4>
+                        <input type="password" name="" placeholder="Enter Account Password" id="userPassSignUp" required>
+                        <h4>Confirm Password: </h4>
+                        <input type="password" name="" placeholder="Confirm Password" id="userPassConfirmSignUp" required>
+                        <h4>Choose Profile Picture:</h4>
+                        <input type="file" name=""  accept="image/png, image/gif, image/jpeg" id="userProfilePictureSignUp" required>
+                        <br>
+                        <div class="termsAgree" style="color: white;">
+                            <p style="display: flex;align-items: center;"><input type="checkbox" style="width: auto;" name="" id="" required> I Agree to Terms and Conditions. <a style="color: white;" href="/Terms">Click To View</a></p>
+                        </div>
+                        <div class="displayButton">
+                            <button>Sign Up</button>
+                        </div>
                     </div>
-                    <div class="displayButton">
-                        <button>Sign Up</button>
-                    </div>
-                </div>
+                </form>
             </div>
 
 
