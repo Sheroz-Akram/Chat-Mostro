@@ -42,7 +42,7 @@
                 <div class="signInBox" id="signInBox">
                     <div style="width: 100%;display: flex;flex-direction: column;align-items: center;">
                         <img src="/Images/Logo.png" alt="" width="100px" srcset="">
-                        <h4>Chat Mostro</h4>
+                        <h4>Chat Mostro Login</h4>
                     </div>
                     <h4>Enter User Name: </h4>
                     <input type="text" name="" placeholder="Enter Your Username" id="userNameLogin" required>
@@ -56,18 +56,23 @@
 
                 <!-- Sign Up Form -->
                 <form action="/AccountAPI" method="post" enctype="multipart/form-data" aria-disabled="true">
-                    <div class="signUpBox" id="signUpBox" style="display: none;" >
+                    <div class="signUpBox" id="signUpBox" style="display: none;">
                         <h4>Enter User Name: </h4>
                         <input type="text" name="" placeholder="Enter Your Username" id="userNameSignUp" required>
                         <h4>Enter Password: </h4>
-                        <input type="password" name="" placeholder="Enter Account Password" id="userPassSignUp" required>
+                        <input type="password" name="" placeholder="Enter Account Password" id="userPassSignUp"
+                            required>
                         <h4>Confirm Password: </h4>
-                        <input type="password" name="" placeholder="Confirm Password" id="userPassConfirmSignUp" required>
+                        <input type="password" name="" placeholder="Confirm Password" id="userPassConfirmSignUp"
+                            required>
                         <h4>Choose Profile Picture:</h4>
-                        <input type="file" name=""  accept="image/png, image/gif, image/jpeg" id="userProfilePictureSignUp" required>
+                        <input type="file" name="" accept="image/png, image/gif, image/jpeg"
+                            id="userProfilePictureSignUp" required>
                         <br>
                         <div class="termsAgree" style="color: white;">
-                            <p style="display: flex;align-items: center;"><input type="checkbox" style="width: auto;" name="" id="" required> I Agree to Terms and Conditions. <a style="color: white;" href="/Terms">Click To View</a></p>
+                            <p style="display: flex;align-items: center;margin: 0px;margin-top: 10px;"><input
+                                    type="checkbox" style="width: auto;" name="" id="" required> I Agree to Terms and
+                                Conditions. <a style="color: white;" href="/Terms">Click To View</a></p>
                         </div>
                         <div class="displayButton">
                             <button>Sign Up</button>

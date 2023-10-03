@@ -12,6 +12,11 @@ html {
     top: 0px;
 }
 
+.displayButton{
+    display: flex;
+    justify-content: center;
+}
+
 .navBar .leftSide {
     float: left;
     margin-left: 20px;
@@ -177,7 +182,7 @@ html {
 }
 
 .accountBox{
-    height: 85vh;
+    padding: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -195,14 +200,22 @@ html {
 .accountBox .accountBoxData input{
     width: 360px;
     height: 25px;
-    font-size: 20px;
+    font-size: 17px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 0px solid black;
+}
+
+.accountBox .accountBoxData input:focus{
+    border: none;
 }
 
 .accountBox .accountBoxData h4{
     color: white;
     margin: 0px;
     margin-top: 20px;
-    font-size: 25px;
+    margin-bottom: 5px;
+    font-size: 20px;
 }
 
 .accountBox .accountBoxData .dispayButton{
