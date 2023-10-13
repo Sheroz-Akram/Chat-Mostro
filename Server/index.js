@@ -42,12 +42,72 @@ app.get("/", (req, res) => {
 
 // Chat Pages
 app.get("/Chat", (req, res) => {
-    res.redirect("/Login");
+
+    // Check If User is Login or Not
+    if (req.session.isLogin) {
+
+        // Check for User in the Database
+        let isLoginAuth = false;
+        let i = 0;
+        for (i = 0; i < userData.length; i++) {
+            // Check User Name and Password
+            if (userData[i].username == req.session.username && userData[i].password == req.session.password) {
+                isLoginAuth = true;
+                break;
+            }
+        }
+
+        // User Login Sucessfully
+        if (isLoginAuth) {
+            res.send("Hey User: " + userData[i].username);
+        }
+
+        // Invalid User Send Back to Login
+        else {
+            // Clear Session
+            req.session.destroy();
+
+            // Send Back to Login Page
+            res.redirect("/Login");
+        }
+    }
+    // If User Not Login Redirect to the Login Page
+    else {
+        res.redirect("/Login");
+    }
 })
 
 // Sign In New User
 app.post("/LoginAPI", multerUploadProfilePics.none(), (req, res) => {
-    console.log(req.body)
+
+    //Get Data from our Request
+    let username = req.body.username;
+    let password = req.body.password;
+
+    // Check if User Already Exist or Not
+    let isUserExist = false;
+    userData.forEach(e => {
+        if (e.username == username && e.password == password) {
+            isUserExist = true;
+        }
+    })
+
+    // If User Exist
+    if (isUserExist) {
+
+        // Save the New User Session 
+        req.session.isLogin = true;
+        req.session.username = username;
+        req.session.password = password;
+
+        // Send ok Status to the Client
+        res.send("OK");
+
+    }
+    else {
+        // Send Message for Invalid User name and Password
+        res.send("Invalid User name and Password!");
+    }
 })
 
 // Create a new User
@@ -64,23 +124,23 @@ app.post("/RegistorAPI", multerUploadProfilePics.single("profilePicture"), (req,
         // Check if User Already Exist or Not
         let isUserExist = false;
         userData.forEach(e => {
-            if(e.username == username){
+            if (e.username == username) {
                 isUserExist = true;
             }
         })
 
         // If User Exist
-        if(isUserExist){
+        if (isUserExist) {
             console.log("New User Registration. Failed!");
             res.send("Error User Already Exist!");
         }
         // This is a new User
-        else{
+        else {
 
             // Save the Data into Our Data Structure
             let newUser = {
-                "username" : username,
-                "password" : password,
+                "username": username,
+                "password": password,
                 "profilePic": fileLocation
             }
 
@@ -95,7 +155,7 @@ app.post("/RegistorAPI", multerUploadProfilePics.single("profilePicture"), (req,
 
             // Send ok Status to the Client
             res.send("OK");
-            
+
         }
     }
     else {
