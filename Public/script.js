@@ -58,6 +58,9 @@ function signUpUser(){
     if(username.length == 0 || password.length == 0 || confirmPassword.length == 0){
         window.alert("Please complete the form!");
     }
+    else if(password != confirmPassword){
+        window.alert('Please Enter Same password for confirm.');
+    }
     else if(profilePic.files.length == 0){
         window.alert("Please select your Profile Picture");
     }
@@ -78,8 +81,15 @@ function signUpUser(){
         fetch("/RegistorAPI", {
             method: "POST",
             body: signupForm
-        }).then(res => res.json()).then(data => {
-            console.log(data);
+        }).then(res => res.text()).then(data => {
+            // If OK response from Server Move to Chat Page because we are Login Now
+            if(data == "OK"){
+                window.open("/Chat");
+            }
+            else{
+                // Show Error Message to ther User
+                window.alert(data);
+            }
         })
     }
     
