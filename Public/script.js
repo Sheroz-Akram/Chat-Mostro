@@ -41,7 +41,7 @@ function signInUser(){
         }).then(res => res.text()).then(data => {
             // If OK response from Server Move to Chat Page because we are Login Now
             if(data == "OK"){
-                window.open("/Chat");
+                window.location = "/Chat";
             }
             else{
                 // Show Error Message to ther User
@@ -91,7 +91,7 @@ function signUpUser(){
         }).then(res => res.text()).then(data => {
             // If OK response from Server Move to Chat Page because we are Login Now
             if(data == "OK"){
-                window.open("/Chat");
+                window.location = "/Chat";
             }
             else{
                 // Show Error Message to ther User
