@@ -1,0 +1,41 @@
+.userNavBar{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 10vh;
+    background-color: #013358;
+    display: flex;
+    align-items: center;
+}
+
+.userNavBar .userLogo {
+    height: 60%;
+    margin-left: 20px;
+    padding: 5px;
+    background-color: antiquewhite;
+    border-radius: 50%;
+}
+
+.userNavBar .userLogo img{
+    height: 100%;
+    border-radius: 50%;
+}
+
+.userNavBar .userInfo{
+    margin-left: 10px;
+}
+
+.userNavBar .userInfo h2{
+    color: white;
+}
+
+.userNavBar .userLogOut{
+    position: absolute;
+    right: 0px;
+    margin-right: 20px;
+}
+
+.userNavBar .userLogOut a{
+    color: white;
+}

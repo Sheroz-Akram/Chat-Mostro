@@ -13,6 +13,7 @@ let userData = [
 // Server Paths
 let clientDirectory = path.join(__dirname, "../Client/")
 let publicDirectory = path.join(__dirname, "../Public/")
+let profilePics = path.join(__dirname, "../ProfilePics/")
 
 // Initialize Our Multer Form Praser
 let multerUploadProfilePics = multer({
@@ -21,6 +22,7 @@ let multerUploadProfilePics = multer({
 
 // Create a Server and Configure
 let app = express();
+app.set('view engine', 'pug')
 app.use(session({
     secret: "bkhGFTY%REY%^$",
     resave: true,
@@ -38,6 +40,53 @@ app.use(express.urlencoded({ extended: true }));
 // Main Page
 app.get("/", (req, res) => {
     res.redirect("/Home")
+})
+
+// Logout the User
+app.get("/Logout", (req, res) => {
+
+    // Destroy the user session with the server
+    req.session.destroy();
+
+    // Send User Back to the Home Page
+    res.redirect("/Home");
+})
+
+app.get("/GetPicture", (req, res) => {
+
+    // Check If User is Login or Not
+    if (req.session.isLogin) {
+
+        // Check for User in the Database
+        let isLoginAuth = false;
+        let i = 0;
+        for (i = 0; i < userData.length; i++) {
+            // Check User Name and Password
+            if (userData[i].username == req.session.username && userData[i].password == req.session.password) {
+                isLoginAuth = true;
+                break;
+            }
+        }
+
+        // User Login Sucessfully
+        if (isLoginAuth) {
+            res.sendFile(profilePics + userData[i]["profilePic"]);
+        }
+
+        // Invalid User Send Back to Login
+        else {
+            // Clear Session
+            req.session.destroy();
+
+            // Send Back to Login Page
+            res.redirect("/Login");
+        }
+    }
+    // If User Not Login Redirect to the Login Page
+    else {
+        res.redirect("/Login");
+    }
+
 })
 
 // Chat Pages
@@ -59,7 +108,12 @@ app.get("/Chat", (req, res) => {
 
         // User Login Sucessfully
         if (isLoginAuth) {
-            res.send("Hey User: " + userData[i].username);
+
+            // Send User to the Chat Page
+            res.render(clientDirectory + "/Chat.pug", {
+                user: userData[i].username,
+            })
+            
         }
 
         // Invalid User Send Back to Login
@@ -119,7 +173,7 @@ app.post("/RegistorAPI", multerUploadProfilePics.single("profilePicture"), (req,
         //Get Data from our Request
         let username = req.body.username;
         let password = req.body.password;
-        let fileLocation = req.file.path;
+        let fileLocation = req.file.filename;
 
         // Check if User Already Exist or Not
         let isUserExist = false;
